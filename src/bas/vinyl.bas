@@ -1,0 +1,24 @@
+R=70
+IF (R < 1 OR R > 96) GOTO 10
+LET R2 = R*R
+HGR2
+HCOLOR = 3
+LET SX = INT (280/2)-0.5
+LET SY = INT (192/2)-0.5
+FOR X = 0 TO R
+  LET Y = SQR (R2 - X*X)
+  IF Y < X-1 THEN GOTO 240
+  HPLOT SX + X,  Y + SY
+  HPLOT SX - X,  Y + SY
+  HPLOT SX + X, -Y + SY
+  HPLOT SX - X, -Y + SY
+  HPLOT SX + Y,  X + SY
+  HPLOT SX - Y,  X + SY
+  HPLOT SX + Y, -X + SY
+  HPLOT SX - Y, -X + SY
+NEXT
+R=10
+GOTO 11
+
+
+END
